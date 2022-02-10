@@ -37,7 +37,7 @@ func Test_IsValid(t *testing.T) {
 
 	for _, test := range tests {
 		t.Run(test.title, func(t *testing.T) {
-			result := IsValid(test.containerSetup)
+			result, _ := BracketCheck(test.containerSetup)
 			if result != test.expectedResult {
 				t.Errorf("expected result: `%t` got: `%t`", test.expectedResult, result)
 			}
