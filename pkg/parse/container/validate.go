@@ -22,13 +22,13 @@ var btMap = map[rune]func(queue []rune, char rune) ([]rune, bool){
 
 func BracketCheck(phrase string) (bool, error) {
 	var queue []rune
-    var checked bool
+	var checked bool
 	for _, v := range phrase {
 		if checkFunc, ok := btMap[v]; ok {
 			queue, checked = checkFunc(queue, v)
-            if(!checked){
-              return false, nil
-            }
+			if !checked {
+				return false, nil
+			}
 		}
 	}
 	return len(queue) == 0, nil
